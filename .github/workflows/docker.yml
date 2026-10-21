@@ -10,7 +10,10 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  # The existing user-level package "kiro-go" is not linked to this fork
+  # repository, so its GITHUB_TOKEN cannot push to it (write_package denied).
+  # Publish the fork build to a fork-owned package instead.
+  IMAGE_NAME: lichking-2234/kiro-go-rwx
 
 jobs:
   build:
